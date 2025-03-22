@@ -1,0 +1,853 @@
+/* ESTILO GERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.flex {
+    display: flex;
+}
+
+/* Botão de Contato */
+.btn-contato button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #00FF08;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover,
+form .btn-enviar input:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+/* Títulos */
+h2.titulo {
+    color: #fff;
+    font-size: 38px;
+    text-align: center;
+}
+
+h2.titulo span {
+    color: #00FF08;
+}
+
+h2.titula {
+    color: #fff;
+    font-size: 38px;
+    text-align: center;
+}
+
+h2.titula span {
+    color: #00FF08;
+}
+
+/* ESTILO DO CABEÇALHO */
+header {
+    padding: 40px 4%;
+    position: relative;
+}
+
+header > .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    color: #5c5c5c;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header nav.menu-desktop a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+/* ESTILO DO MENU MOBILE */
+
+.btn-abrir-menu {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+}
+
+.btn-abrir-menu i {
+    color: #00FF08;
+    font-size: 30px;
+}
+
+.menu-mobile {
+    background-color: #000;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    width: 0%;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.menu-mobile.abrir-menu {
+    width: 70%;
+}
+
+.menu-mobile.abrir-menu~.overlay-menu {
+    display: block;
+}
+
+.menu-mobile .btn-fechar {
+    padding: 20px 5%;
+}
+
+.menu-mobile .btn-fechar i {
+    color: #00FF08;
+    font-size: 30px;
+}
+
+.menu-mobile nav ul {
+    text-align: right;
+}
+
+.menu-mobile nav ul li a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 8%;
+    display: block;
+}
+
+.menu-mobile nav ul li a:hover {
+    background-color: #00FF08;
+    color: #000;
+}
+
+.overlay-menu {
+    background-color: #000000df;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88888;
+    display: none;
+}
+
+/* ESTILO DO TOPO DO SITE */
+
+section.topo-do-site {
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.topo-do-site h1 {
+    color: #fff;
+    font-size: 42px;
+    line-height: 40px;
+}
+
+.topo-do-site .txt-topo-site h1 span {
+    color: #00FF08;
+}
+
+.topo-do-site .txt-topo-site p {
+    color: #fff;
+    margin: 40px 0;
+}
+
+.topo-do-site .img-topo-site img {
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+}
+
+@keyframes flutuar {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 30px;
+    }
+}
+
+/* Estilos para o vídeo e seu contêiner apenas */
+
+/* Estilo para o contêiner do vídeo */
+.video-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilo para o título */
+.video-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #00FF08;
+}
+
+/* Estilo para o contêiner do vídeo */
+.video-wrapper {
+    width: 100%;
+    max-width: 100%;
+    background-color: #333;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Estilo do vídeo */
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+
+/* ESTILO DOS CURSOS EM DESTAQUE */
+.cursos-destaque {
+    padding: 80px 4%;
+    margin-top: 50px; /* Adiciona essa linha para espaçamento */
+}
+
+.cursos-destaque .flex {
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.curso-box {
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.curso-box h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.curso-box p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* CURSOS EM DESTAQUE (DESKTOP) */
+.cursos-destaque {
+    padding: 80px 4%;
+}
+
+.cursos-destaque .flex {
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    overflow-x: visible;
+    scroll-snap-type: none;
+}
+
+.curso-box {
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+    flex: 1 1 300px;
+}
+
+/* CARROSSEL ATIVADO APENAS NO MOBILE */
+@media screen and (max-width: 1020px) {
+    .cursos-destaque .flex {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+    }
+
+    .curso-box {
+        width: 80%;
+        min-width: 300px;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        margin-right: 10px;
+    }
+}
+
+/* CARROSSEL ATIVADO APENAS NO MOBILE */
+@media screen and (max-width: 1020px) {
+    .cursos-destaque .flex {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+    }
+
+    /* Esconde a barra de rolagem */
+    .cursos-destaque .flex::-webkit-scrollbar {
+        display: none;
+    }
+
+    .curso-box {
+        width: 80%;
+        min-width: 300px;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        margin-right: 10px;
+    }
+}
+
+/* Informações do Curso (Preço, Duração, Certificado) */
+.info-curso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.info-curso span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-curso i {
+    margin-right: 5px;
+    color: #00FF08;
+}
+
+.preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00FF08;
+}
+
+.btn-curso {
+    background-color: #00FF08;
+    color: #000;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: .2s;
+}
+
+.btn-curso:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+.ver-todos-cursos {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.ver-todos-cursos a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: .2s;
+}
+
+.ver-todos-cursos a:hover {
+    color: #00FF08;
+}
+
+/* Estilo da seção de depoimentos (se você adicionar) */
+.depoimentos {
+    padding: 80px 4%;
+}
+
+.depoimentos .depoimento-box {
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+}
+
+.depoimentos .depoimento-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.depoimentos .depoimento-box .aluno {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.depoimentos .depoimento-box .aluno img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.depoimentos .depoimento-box .aluno span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ESTILO DO SOBRE */
+section.sobre {
+    padding: 80px 4%;
+}
+
+section.sobre .flex {
+    align-items: center;
+    gap: 60px;
+}
+
+.sobre .txt-sobre {
+    color: #fff;
+}
+
+.sobre .txt-sobre h2 {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span {
+    color: #00FF08;
+    display: block;
+}
+
+.sobre .txt-sobre p {
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.btn-social button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #00FF08;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: .2s;
+}
+
+/* ESTILO DO PORTFÓLIO */
+section.portfolio {
+    padding: 80px 4%;
+}
+
+section.portfolio .flex {
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.img-port {
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+}
+
+.img-port:hover {
+    background-position: 100% 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000b8;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transition: .5s;
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+/* ESTILO DO FORMULÁRIO DE CONTATO */
+section.formulario {
+    padding: 80px 4%;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    background-color: #242424;
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 18px;
+}
+
+form textarea {
+    resize: none;
+    max-height: 200px;
+}
+
+form .btn-enviar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .btn-enviar input {
+    width: 120px;
+    background-color: #00FF08;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+/* ESTILO DO RODAPÉ */
+
+footer {
+    padding: 40px 4%;
+    box-shadow: 0 0 40px 10px #ffffff1d;
+}
+
+footer .flex {
+    justify-content: space-between;
+}
+
+footer .line-footer {
+    padding: 20px 0;
+}
+
+.borda {
+    border-top: 2px solid #00FF08;
+}
+
+footer .line-footer p i {
+    color: #00FF08;
+    font-size: 22px;
+}
+
+footer .line-footer p a {
+    color: #fff;
+}
+
+/* RESPONSIVO */
+@media screen and (max-width: 1020px) {
+
+    /* CLASSES GERAIS */
+    .flex {
+        flex-direction: column;
+    }
+
+    .topo-do-site .flex {
+        flex-direction: column-reverse; /* Adicionado para inverter a ordem */
+    }
+
+    h2.titulo {
+        font-size: 34px;
+        line-height: 30px;
+    }
+
+    /* CABEÇALHO */
+    header {
+        position: relative;
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    header .btn-contato {
+        display: none;
+    }
+
+    .btn-abrir-menu {
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 4%;
+        transform: translateY(-50%);
+    }
+
+    .btn-abrir-menu i {
+        font-size: 25px;
+    }
+
+    /* TOPO DO SITE */
+    section.topo-do-site {
+        padding: 20px 8%;
+    }
+
+    section.topo-do-site .flex {
+        gap: 40px;
+    }
+
+    .topo-do-site h1 {
+        font-size: 30px;
+    }
+
+    .topo-do-site .img-topo-site img {
+        width: 100%;
+    }
+
+    /* CURSOS EM DESTAQUE */
+    .cursos-destaque {
+        padding: 40px 8%;
+    }
+
+    .cursos-destaque .flex {
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+    }
+
+    .curso-box {
+        width: 80%;
+        min-width: 300px;
+        margin: 0;
+        margin-right: 10px;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
+
+    /* SOBRE */
+    section.sobre {
+        padding: 80px 8%;
+    }
+
+    .sobre .flex {
+        align-items: center;
+        gap: 40px;
+    }
+
+    .sobre .txt-sobre h2 {
+        font-size: 34px;
+        line-height: 35px;
+        text-align: center;
+    }
+
+    .btn-social {
+        text-align: center;
+    }
+
+    .img-sobre img {
+        width: 100%;
+    }
+
+    /* RODAPÉ */
+    footer .flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    footer .line-footer {
+        text-align: center;
+    }
+}
+
+/* Ajuste para alinhar a imagem abaixo do texto no mobile */
+@media screen and (max-width: 1020px) {
+    .topo-do-site .flex {
+        flex-direction: column;
+        gap: 20px; /* Adiciona espaçamento entre os elementos */
+    }
+
+    .img-topo-site img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Ajuste no desktop para manter a imagem ao lado do texto */
+@media screen and (min-width: 1021px) {
+    .topo-do-site .flex {
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+    }
+
+    .img-topo-site img {
+        width: 100%;
+        max-width: 500px; /* Define um tamanho máximo para a imagem */
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .flex {
+        display: flex;
+        flex-direction: column; /* Deixa os elementos em coluna */
+    }
+
+    .img-topo-site {
+        order: 2; /* Garante que a imagem fique depois do texto e do botão */
+        margin-top: 20px; /* Espaçamento para não ficar colado */
+    }
+
+    .btn-contato {
+        order: 1; /* Mantém o botão antes da imagem */
+    }
+}
+
+/* Garante que a imagem do banner tenha controle total do tamanho */
+.img-topo-site img {
+    display: block; /* Remove qualquer comportamento flexível */
+    width: 100%; /* Mantém a largura responsiva */
+    max-width: 100%; /* Impede que ultrapasse o contêiner */
+    height: auto; /* Mantém a proporção original */
+}
+
+/* Ajuste do tamanho APENAS para telas maiores */
+@media screen and (min-width: 1024px) {
+    .img-topo-site img {
+        width: auto; /* Permite redimensionamento */
+        max-width: 80%; /* Limita a largura no desktop */
+        height: 500px; /* Ajuste conforme necessário */
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+}
+
+.img-topo-site {
+    display: flex;  
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente (caso necessário) */
+    width: 100%; /* Garante que ocupe toda a largura */
+}
+
+.img-topo-site img {
+    max-width: 80%; /* Define um tamanho limite no desktop */
+    height: auto; /* Mantém a proporção */
+}
+
+/* Ajustes apenas no modo desktop */
+@media screen and (min-width: 1024px) {
+    .img-topo-site {
+        justify-content: center; /* Mantém centralizado */
+    }
+
+    .img-topo-site img {
+        max-width: 400%; /* Ajuste conforme necessário */
+        height: 400px; /* Defina um tamanho fixo */
+    }
+}
+
+/* Alinha o título e o botão à esquerda */
+.topo-do-site .txt-topo-site {
+    text-align: left;
+}
+.topo-do-site .btn-contato {
+    text-align: left;  
+}
+
+
+
+/* Estilo para o título h2 */
+.titula {
+    font-size: 28px; /* Tamanho da fonte do título */
+    color: #333; /* Cor do título */
+    text-align: center; /* Alinhamento do título */
+    letter-spacing: 2px; /* Espaçamento entre as letras do título */
+    line-height: 1.5; /* Espaçamento entre as linhas do título */
+    margin-bottom: 2px; /* Espaço abaixo do título */
+   
+    margin-top: 100px; /* Controle da posição do título na parte superior */
+}
+
+/* Estilo para o texto dentro da tag <span> */
+.titulo span {
+    color: #e74c3c; /* Cor específica para o texto 'Destaque' */
+    font-weight: bold; /* Deixar a palavra 'Destaque' em negrito */
+    letter-spacing: 4px; /* Espaçamento extra entre as letras da palavra 'Destaque' */
+    margin-left: 5px; /* Espaço à esquerda da palavra 'Destaque' (ajustável para aproximar ou afastar as palavras) */
+}
+
+/* Controle do espaçamento geral entre o título e a palavra "Destaque" */
+.titulo span {
+    margin-left: 10px; /* Ajusta o espaçamento entre 'Cursos em' e 'Destaque' */
+}
+
+/* Para mover o título mais para cima ou para baixo, altere o margin-top e margin-bottom */
+.titulo {
+    margin-top: 10px; /* Se quiser mover para cima, diminua esse valor */
+    margin-bottom: 15px; /* Controle o espaçamento abaixo */
+}
