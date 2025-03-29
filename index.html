@@ -12,6 +12,435 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Estilos Inline para os Cursos Premium */
+        /* Resetando estilos padrão para garantir consistência */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: #fff;
+            padding: 30px 15px;
+        }
+
+        /* Espaçamento acima do carrossel */
+        .espacamento-superior {
+            margin-top: 40px;
+        }
+
+        .header-cursos {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .titulo-principal {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitulo {
+            color: #aaa;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Container do carrossel */
+        .carrossel-container {
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Área dos cursos (carrossel) */
+        .cursos-carrossel {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        /* Card do curso */
+        .curso-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            padding-bottom: 30px;
+            margin-right: 15px;
+            flex: 0 0 300px;
+            /* Largura fixa para todos os cursos */
+            max-width: 300px;
+            /* Define uma largura máxima */
+        }
+
+        .curso-header {
+            background: linear-gradient(135deg, #222, #000);
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+
+        .curso-titulo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .curso-subtitulo {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .curso-beneficios {
+            padding: 20px;
+            min-height: 220px;
+        }
+
+        .beneficio-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #eee;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .beneficio-item::before {
+            content: '\f00c';
+            position: absolute;
+            left: 0;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #27ae60;
+            font-size: 0.9rem;
+        }
+
+        .curso-precos {
+            padding: 20px;
+            background: #222;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .preco-parcelado {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .preco-avista {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-inscricao {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .btn-inscricao:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Indicadores (bolinhas) */
+        .carrossel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .indicador {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicador.ativo {
+            background: #27ae60;
+            transform: scale(1.2);
+        }
+
+        /* Botões de navegação */
+        .carrossel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .carrossel-btn {
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carrossel-btn:hover {
+            background: #27ae60;
+        }
+
+        /* Esconde as setas no mobile */
+        @media (max-width: 768px) {
+            .carrossel-nav {
+                display: none;
+            }
+        }
+
+        /* Estilos para telas menores (mobile) */
+        @media (max-width: 768px) {
+            .curso-card {
+                flex: 0 0 80%;
+                /* Ocupa 80% da largura */
+                margin-right: 15px;
+                max-width: none;
+            }
+
+            .carrossel-container {
+                padding: 0 10px;
+            }
+
+            /* Espaçamento extra acima do carrossel no mobile */
+            .espacamento-superior {
+                margin-top: 20px;
+            }
+
+            /* Esconde os indicadores (bolinhas) no mobile */
+            .carrossel-indicators {
+                display: none;
+            }
+        }
+
+        /* Esconde os indicadores (bolinhas) no desktop */
+        @media (min-width: 769px) {
+            .carrossel-indicators {
+                display: none;
+            }
+        }
+
+        /* Correções e estilos para o rodapé */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00FF08;
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* Estilos para a seção Sobre Nós com imagem */
+        .sobre {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .sobre .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .sobre .txt-sobre {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .sobre h2 {
+            font-size: 2.0rem;
+            margin-bottom: 15px;
+            color: #00FF08;
+            /* Verde */
+        }
+
+        .sobre h2 span {
+            color: #fff;
+            display: block;
+        }
+
+        .sobre p {
+            font-size: 1rem;
+            color: #eee;
+            margin-bottom: 20px;
+        }
+
+        .sobre .btn-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .sobre .btn-social button {
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sobre .btn-social button:hover {
+            background: #27ae60;
+        }
+
+        .sobre .img-sobre {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .sobre .img-sobre img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsividade para a seção Sobre Nós */
+        @media (max-width: 768px) {
+            .sobre .flex {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .sobre .txt-sobre {
+                text-align: center;
+            }
+        }
+
+        /* Estilos para o Menu Mobile */
+        .menu-mobile {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            /* Escondido fora da tela */
+            width: 300px;
+            height: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            /* Garante que fique acima de outros elementos */
+        }
+
+        .menu-mobile.abrir {
+            left: 0;
+            /* Mostra o menu */
+        }
+
+        .overlay-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+            /* Inicialmente escondido */
+            cursor: pointer;
+        }
+
+        .overlay-menu.abrir {
+            display: block;
+            /* Mostra o overlay */
+        }
+
+        .menu-mobile .btn-fechar {
+            text-align: right;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .menu-mobile .btn-fechar i {
+            font-size: 24px;
+        }
+
+        .menu-mobile nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-mobile nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .menu-mobile nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            /* Para ocupar a largura total */
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .menu-mobile nav ul li a:hover {
+            background-color: #333;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,22 +448,22 @@
     <header>
         <div class="interface">
             <div class="logo">
-                <a href="#">
-                    <img src="logo.png" alt="Logotipo EduTech">
+                <a href="#inicio">
+                    <img src="img/pixelcut-export.png" alt="Logotipo EduTech">
                 </a>
             </div>
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Cursos</a></li>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#cursos-premium">Cursos</a></li>
+                    <li><a href="#sobre-nos">Sobre Nós</a></li>
+                    <li><a href="#formulario">Contato</a></li>
                 </ul>
             </nav>
 
             <div class="btn-contato">
-                <button>Entrar em contato</button>
+                <a href="#formulario"><button>Entrar em contato</button></a>
             </div>
 
             <div class="btn-abrir-menu" id="btn-menu">
@@ -43,15 +472,15 @@
 
             <div class="menu-mobile" id="menu-mobile">
                 <div class="btn-fechar">
-                    <i class="fa fa-times"></i>
+                    <i class="fa fa-times btn-fechar-menu"></i>
                 </div>
 
                 <nav>
                     <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Cursos</a></li>
-                        <li><a href="#">Sobre Nós</a></li>
-                        <li><a href="#">Contato</a></li>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#cursos-premium">Cursos</a></li>
+                        <li><a href="#sobre-nos">Sobre Nós</a></li>
+                        <li><a href="#formulario">Contato</a></li>
                     </ul>
                 </nav>
             </div>
@@ -61,7 +490,7 @@
     </header>
 
     <main>
-        <section class="topo-do-site">
+        <section class="topo-do-site" id="inicio">
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
@@ -71,84 +500,141 @@
                             profissionais.</p>
 
                         <div class="btn-contato">
-                            <button>Ver Nossos Cursos</button>
+                           <a href="#cursos-premium"><button>Ver Nossos Cursos</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="video-container">
             <h2></h2>
             <div class="video-wrapper">
                 <video controls>
-                    <source src="seu-video.mp4" type="video/mp4">
+                    <source src="video/videoplayback.mp4" type="video/mp4">
                     Seu navegador não suporta a tag de vídeo.
                 </video>
             </div>
         </section>
 
-        <h2 class="titula">Cursos em <span>Destaque</span></h2>
+        <!-- Cursos Premium -->
+        <section class="cursos-premium" id="cursos-premium">
+            <div class="header-cursos">
+                <h2 class="titulo-principal">Nossos Cursos Premium</h2>
+                <p class="subtitulo">Conhecimento que transforma seu negócio digital</p>
+            </div>
 
-        <section class="cursos-destaque">
-            <div class="interface">
-               
-                <div class="flex cursos-container">
-
-                    <div class="curso-box">
-                        <img src="img/download.jfif" alt="Curso de Desenvolvimento Web">
-                        <h3>Desenvolvimento Web Completo</h3>
-                        <p>Aprenda a criar sites e aplicações web modernos com as tecnologias mais utilizadas no
-                            mercado.</p>
-                        <div class="info-curso">
-                            <span class="preco">R$ 299,00</span>
-                            <span class="duracao"><i class="fa fa-clock"></i> 60 horas</span>
-                            <span class="certificado"><i class="fa fa-certificate"></i> Certificado Incluso</span>
+            <!-- Carrossel para todas as telas -->
+            <div class="carrossel-container espacamento-superior">
+                <div class="cursos-carrossel" id="cursosCarrossel">
+                    <!-- Curso 1 -->
+                    <div class="curso-card">
+                        <div class="curso-header">
+                            <h3 class="curso-titulo">Dropshipping Master</h3>
+                            <p class="curso-subtitulo">Domine as estratégias mais lucrativas</p>
                         </div>
-                        <a href="#" class="btn-curso">Saiba Mais</a>
+
+                        <div class="curso-beneficios">
+                            <div class="beneficio-item">Módulo Cash On Delivery</div>
+                            <div class="beneficio-item">Anúncios de alta conversão</div>
+                            <div class="beneficio-item">Produtos campeões</div>
+                            <div class="beneficio-item">Ferramentas exclusivas</div>
+                            <div class="beneficio-item">Mentoria de 40 dias</div>
+                            <div class="beneficio-item">Acesso vitalício</div>
+                        </div>
+
+                        <div class="curso-precos">
+                            <div class="preco-parcelado">12X de R$70,63</div>
+                            <div class="preco-avista">Ou R$697,00 à vista</div>
+                            <a href="#" class="btn-inscricao">Comprar Curso</a>
+                        </div>
                     </div>
 
-                    <div class="curso-box">
-                        <img src="curso-marketing.jpg" alt="Curso de Marketing Digital">
-                        <h3>Marketing Digital Essencial</h3>
-                        <p>Domine as estratégias de marketing online para alavancar seu negócio e alcançar mais
-                            clientes.</p>
-                        <div class="info-curso">
-                            <span class="preco">R$ 199,00</span>
-                            <span class="duracao"><i class="fa fa-clock"></i> 40 horas</span>
-                            <span class="certificado"><i class="fa fa-certificate"></i> Certificado Incluso</span>
+                    <!-- Curso 2 -->
+                    <div class="curso-card">
+                        <div class="curso-header">
+                            <h3 class="curso-titulo">Marketing Digital</h3>
+                            <p class="curso-subtitulo">Estratégias comprovadas para 2024</p>
                         </div>
-                        <a href="#" class="btn-curso">Saiba Mais</a>
+
+                        <div class="curso-beneficios">
+                            <div class="beneficio-item">Tráfego pago avançado</div>
+                            <div class="beneficio-item">Copywriting persuasivo</div>
+                            <div class="beneficio-item">Conversão máxima</div>
+                            <div class="beneficio-item">Anúncios nativos</div>
+                            <div class="beneficio-item">Casos reais de sucesso</div>
+                            <div class="beneficio-item">Certificado digital</div>
+                        </div>
+
+                        <div class="curso-precos">
+                            <div class="preco-parcelado">12X de R$50,36</div>
+                            <div class="preco-avista">Ou R$497,00 à vista</div>
+                            <a href="#" class="btn-inscricao">Comprar Curso</a>
+                        </div>
                     </div>
 
-                    <div class="curso-box">
-                        <img src="curso-design.jpg" alt="Curso de Design Gráfico">
-                        <h3>Design Gráfico para Iniciantes</h3>
-                        <p>Aprenda a criar designs incríveis para mídias sociais, impressos e muito mais.</p>
-                        <div class="info-curso">
-                            <span class="preco">R$ 149,00</span>
-                            <span class="duracao"><i class="fa fa-clock"></i> 30 horas</span>
-                            <span class="certificado"><i class="fa fa-certificate"></i> Certificado Incluso</span>
+                    <!-- Curso 3 -->
+                    <div class="curso-card">
+                        <div class="curso-header">
+                            <h3 class="curso-titulo">Ecommerce Expert</h3>
+                            <p class="curso-subtitulo">Construa sua loja virtual lucrativa</p>
                         </div>
-                        <a href="#" class="btn-curso">Saiba Mais</a>
+
+                        <div class="curso-beneficios">
+                            <div class="beneficio-item">Plataformas ideais</div>
+                            <div class="beneficio-item">Gestão de estoque</div>
+                            <div class="beneficio-item">Logística eficiente</div>
+                            <div class="beneficio-item">Atendimento ao cliente</div>
+                            <div class="beneficio-item">Fidelização</div>
+                            <div class="beneficio-item">Modelos prontos</div>
+                        </div>
+
+                        <div class="curso-precos">
+                            <div class="preco-parcelado">12X de R$60,42</div>
+                            <div class="preco-avista">Ou R$597,00 à vista</div>
+                            <a href="#" class="btn-inscricao">Comprar Curso</a>
+                        </div>
+                    </div>
+
+                    <!-- Curso 4 -->
+                    <div class="curso-card">
+                        <div class="curso-header">
+                            <h3 class="curso-titulo">Copywriting</h3>
+                            <p class="curso-subtitulo">Vendas através da palavra</p>
+                        </div>
+
+                        <div class="curso-beneficios">
+                            <div class="beneficio-item">Estruturas comprovadas</div>
+                            <div class="beneficio-item">Gatilhos mentais</div>
+                            <div class="beneficio-item">Anúncios persuasivos</div>
+                            <div class="beneficio-item">Email marketing</div>
+                            <div class="beneficio-item">Landing pages</div>
+                            <div class="beneficio-item">Exercícios práticos</div>
+                        </div>
+
+                        <div class="curso-precos">
+                            <div class="preco-parcelado">12X de R$40,25</div>
+                            <div class="preco-avista">Ou R$397,00 à vista</div>
+                            <a href="#" class="btn-inscricao">Comprar Curso</a>
+                        </div>
                     </div>
                 </div>
 
-                 <div class="ver-todos-cursos">
-                    <a href="#">Ver todos os cursos</a>
-                 </div>
+                <!-- Botões de navegação -->
+                <div class="carrossel-nav">
+                    <button class="carrossel-btn" id="btnAnterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carrossel-btn" id="btnProximo"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Indicadores (bolinhas) -->
+                <div class="carrossel-indicators" id="carrosselIndicators">
+                    <!-- Gerado pelo JavaScript -->
+                </div>
             </div>
         </section>
 
-        
-
-        <section class="sobre">
+        <section class="sobre" id="sobre-nos">
             <div class="interface">
                 <div class="flex">
-                    <div class="img-sobre">
-                        <img src="imagem.png" alt="Imagem Sobre">
-                    </div>
-
                     <div class="txt-sobre">
                         <h2>Sobre a <span>EduTech Solutions</span></h2>
                         <p>Somos uma plataforma de cursos online focada em oferecer conteúdo de qualidade e uma
@@ -163,15 +649,18 @@
                             <button><i class="fa-brands fa-instagram"></i></button>
                         </div>
                     </div>
+
+                    <!-- Imagem sobre nós -->
+                    <div class="img-sobre">
+                        <img src="img/renda-extra.jpeg" alt="Imagem sobre a EduTech Solutions">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="formulario">
+        <section class="formulario" id="formulario">
             <div class="interface">
                 <h2 class="titulo">Tire suas <span>duvidas</span></h2>
-
-                
 
                 <form action="">
                     <input type="text" placeholder="Seu nome completo" required>
@@ -187,28 +676,160 @@
 
     <footer>
         <div class="interface">
-            <div class="flex">
-                <div class="line-footer">
-                    <p>
-                        <i class="fa fa-phone"></i> <a href="tel:5511999999999">(11) 99999-9999</a>
-                    </p>
-                </div>
-                <div class="line-footer">
-                    <p>
-                        <i class="fa fa-envelope"></i> <a href="mailto:contato@edutech.com">contato@edutech.com</a>
-                    </p>
-                </div>
+            <div class="footer-links">
+                <a href="#inicio">Início</a>
+                <a href="#cursos-premium">Cursos</a>
+                <a href="#sobre-nos">Sobre Nós</a>
+                <a href="#formulario">Contato</a>
             </div>
-
-            <div class="line-footer borda">
-                <p>
-                    <i class="fa fa-copyright"></i> 2024 EduTech Solutions. Todos os direitos reservados.
-                </p>
+            <div class="footer-copyright">
+                © 2024 EduTech Solutions. Todos os direitos reservados.
             </div>
         </div>
     </footer>
-
     <script src="js/script.js"></script>
+    <script>
+        // Configuração do carrossel
+        let currentIndex = 0;
+        const carrossel = document.getElementById('cursosCarrossel');
+        const indicadoresContainer = document.getElementById('carrosselIndicators');
+        const btnAnterior = document.getElementById('btnAnterior');
+        const btnProximo = document.getElementById('btnProximo');
+        const cursos = document.querySelectorAll('.curso-card');
+        let cardsPorVez = window.innerWidth <= 768 ? 1 : 2; // 1 card no mobile, 2 no desktop
+        let isMobile = window.innerWidth <= 768; // Verifica se está no mobile
+
+        // Inicializa o carrossel
+        function initCarrossel() {
+            criarIndicadores();
+            atualizarCarrossel();
+            setupTouchEvents();
+
+            // Configura os eventos de redimensionamento
+            window.addEventListener('resize', () => {
+                isMobile = window.innerWidth <= 768; // Atualiza o status de mobile
+                const novoCardsPorVez = isMobile ? 1 : 2;
+                if (novoCardsPorVez !== cardsPorVez) {
+                    cardsPorVez = novoCardsPorVez;
+                    atualizarCarrossel();
+                }
+            });
+
+            // Esconde os indicadores (bolinhas) no desktop
+            if (!isMobile) {
+                indicadoresContainer.style.display = 'none';
+            }
+        }
+
+        // Cria os indicadores (bolinhas)
+        function criarIndicadores() {
+            indicadoresContainer.innerHTML = '';
+
+            // Calcula quantos grupos de cards existem
+            const totalGrupos = Math.ceil(cursos.length / cardsPorVez);
+
+            for (let i = 0; i < totalGrupos; i++) {
+                const indicador = document.createElement('div');
+                indicador.className = 'indicador';
+                if (i === currentIndex) {
+                    indicador.classList.add('ativo');
+                }
+                indicador.addEventListener('click', () => irParaGrupo(i));
+                indicadoresContainer.appendChild(indicador);
+            }
+        }
+
+        // Atualiza a posição do carrossel
+        function atualizarCarrossel() {
+            const translateX = -currentIndex * (100 / cardsPorVez); // Ajuste para o número de cards por vez
+            carrossel.style.transform = `translateX(${translateX}%)`;
+
+            // Atualiza os indicadores
+            document.querySelectorAll('.indicador').forEach((ind, index) => {
+                ind.classList.toggle('ativo', index === currentIndex);
+            });
+
+            // Esconde os indicadores (bolinhas) no desktop
+            if (!isMobile) {
+                indicadoresContainer.style.display = 'none';
+            } else {
+                indicadoresContainer.style.display = 'flex'; // Garante que os indicadores apareçam no mobile
+            }
+        }
+
+        // Navega para um grupo específico de cards
+        function irParaGrupo(index) {
+            currentIndex = index;
+            atualizarCarrossel();
+        }
+
+        // Avança para o próximo grupo de cards
+        function proximoGrupo() {
+            const totalGrupos = Math.ceil(cursos.length / cardsPorVez);
+            currentIndex = (currentIndex < totalGrupos - 1) ? currentIndex + 1 : 0;
+            atualizarCarrossel();
+        }
+
+        // Volta para o grupo anterior de cards
+        function grupoAnterior() {
+            const totalGrupos = Math.ceil(cursos.length / cardsPorVez);
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalGrupos - 1;
+            atualizarCarrossel();
+        }
+
+        // Configura os eventos de touch (swipe)
+        function setupTouchEvents() {
+            let startX = 0;
+            let isDragging = false;
+
+            carrossel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                carrossel.style.transition = 'none';
+            }, {
+                passive: false
+            });
+
+            carrossel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+
+                const x = e.touches[0].clientX;
+                const diff = startX - x;
+
+                carrossel.style.transform = `translateX(calc(-${currentIndex * (100 / cardsPorVez)}% - ${diff}px))`;
+            }, {
+                passive: false
+            });
+
+            carrossel.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                carrossel.style.transition = 'transform 0.5s ease';
+
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (diff > 50) {
+                    proximoGrupo();
+                } else if (diff < -50) {
+                    grupoAnterior();
+                } else {
+                    atualizarCarrossel();
+                }
+            }, {
+                passive: false
+            });
+        }
+
+        // Event listeners para os botões de navegação
+        btnAnterior.addEventListener('click', grupoAnterior);
+        btnProximo.addEventListener('click', proximoGrupo);
+
+        // Inicia o carrossel quando a página carrega
+        window.addEventListener('DOMContentLoaded', initCarrossel);
+    </script>
+
 </body>
 
 </html>
