@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduTech Solutions - Cursos Online</title>
+    <title>DanTech Solutions - Cursos Online</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link do Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJQeIcQz6FS2vYIf7pMZ3ITXvh9Skfsq9C1BGXQ1x59CzX62Xp5Y0Dpqf2w3" crossorigin="anonymous">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -506,15 +509,54 @@
                 </div>
             </div>
         </section>
-        <section class="video-container">
-            <h2></h2>
-            <div class="video-wrapper">
-                <video controls>
-                    <source src="video/videoplayback.mp4" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
+        <div class="meu-video-wrapper">
+            <h2 class="meu-video-titulo">Assista ao vídeo:</h2>
+            <div class="meu-video-container">
+              <video controls autoplay>
+                <source src="video/videoplayback.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo HTML5.
+              </video>
             </div>
-        </section>
+          </div>
+          
+          <style>
+            .meu-video-wrapper {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin: 40px 0;
+            }
+          
+            .meu-video-titulo {
+              color: #ffffff; /* Azul escuro */
+              font-size: 24px;
+              margin-bottom: 20px;
+              font-family: Arial, sans-serif;
+            }
+          
+            .meu-video-container {
+              width: 90%;
+              max-width: 900px;
+              border-radius: 20px;
+              overflow: hidden;
+              box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+              border: 3px solid #00FF08; /* Azul claro neon */
+            }
+          
+            .meu-video-container video {
+              width: 100%;
+              height: auto;
+              display: block;
+            }
+          
+            @media (max-width: 600px) {
+              .meu-video-titulo {
+                font-size: 20px;
+                text-align: center;
+              }
+            }
+          </style>
+          
 
         <!-- Cursos Premium -->
         <section class="cursos-premium" id="cursos-premium">
@@ -529,23 +571,28 @@
                     <!-- Curso 1 -->
                     <div class="curso-card">
                         <div class="curso-header">
-                            <h3 class="curso-titulo">Dropshipping Master</h3>
+                            <h3 class="curso-titulo">Sua renda em casa 2.0</h3>
                             <p class="curso-subtitulo">Domine as estratégias mais lucrativas</p>
                         </div>
 
                         <div class="curso-beneficios">
-                            <div class="beneficio-item">Módulo Cash On Delivery</div>
-                            <div class="beneficio-item">Anúncios de alta conversão</div>
-                            <div class="beneficio-item">Produtos campeões</div>
+                            <div class="beneficio-item">Módulo Renda Online do Zero</div>
+                            <div class="beneficio-item">Aulas de Vendas Que Funcionam no Mundo Real</div>
+                            <div class="beneficio-item">Produtos e Serviços que Mais Vendem Online</div>
                             <div class="beneficio-item">Ferramentas exclusivas</div>
-                            <div class="beneficio-item">Mentoria de 40 dias</div>
+                            <div class="beneficio-item">Ferramentas Exclusivas de Marketing e Automaçãos</div>
                             <div class="beneficio-item">Acesso vitalício</div>
+                            <div class="beneficio-item"> Mentoria de 40 Dias com Suporte Pessoal no WhatsApp</div>
+                            <div class="beneficio-item">  Acesso Vitalício a Todo o Conteúdo</div>
+                            <div class="beneficio-item"> Bônus: Modelos Prontos de Conversas e Anúncios</div>
+
+
                         </div>
 
                         <div class="curso-precos">
-                            <div class="preco-parcelado">12X de R$70,63</div>
-                            <div class="preco-avista">Ou R$697,00 à vista</div>
-                            <a href="#" class="btn-inscricao">Comprar Curso</a>
+                            <div class="preco-parcelado">12X de R$9,74</div>
+                            <div class="preco-avista">Ou R$97,00 à vista</div>
+                            <a href="https://kiwify.app/omIfoVi?afid=UOG7DDvP" class="btn-inscricao">Comprar Curso</a>
                         </div>
                     </div>
 
@@ -657,6 +704,485 @@
                 </div>
             </div>
         </section>
+
+        <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depoimentos - Cursos de Maquiagem Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00ff88;
+            --secondary-color: #007a47;
+            --dark-color: #000000;
+            --light-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .depoimentos-section {
+            padding: 60px 20px;
+            background: var(--dark-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .depoimentos-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .depoimentos-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .depoimento-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            position: relative;
+            flex: 0 0 calc(100% - 20px);
+            margin: 0 10px;
+            min-height: 300px;
+        }
+        
+        /* Desktop - mostra 3 cards por vez */
+        @media (min-width: 769px) {
+            .depoimento-card {
+                flex: 0 0 calc(33.333% - 20px);
+            }
+        }
+        
+        /* Mobile - mostra 1 card por vez */
+        @media (max-width: 768px) {
+            .depoimento-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+        }
+        
+        .depoimento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+        
+        .rating {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .depoimento-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .cliente-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cliente-foto {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 12px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .cliente-detalhes h4 {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 2px;
+            text-align: left;
+        }
+        
+        .cliente-detalhes p {
+            font-size: 0.8rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            text-align: left;
+        }
+        
+        .depoimento-data {
+            font-size: 0.75rem;
+            color: #666;
+            text-align: right;
+            margin-top: 15px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: black;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+        
+        /* Controles do carrossel */
+        .carrossel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .carrossel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carrossel-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+        
+        /* Botões de navegação */
+        .carrossel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: var(--primary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .depoimentos-wrapper:hover .carrossel-nav {
+            opacity: 1;
+        }
+        
+        .carrossel-prev {
+            left: 10px;
+        }
+        
+        .carrossel-next {
+            right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .carrossel-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="depoimentos-section">
+        <h2 class="section-title">DEPOIMENTOS REAIS</h2>
+        <p class="section-subtitle">Veja como nossas alunas transformaram suas vidas com os cursos de maquiagem digital e renda extra</p>
+        
+        <div class="depoimentos-wrapper">
+            <button class="carrossel-nav carrossel-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carrossel-nav carrossel-next"><i class="fas fa-chevron-right"></i></button>
+            
+            <div class="depoimentos-container" id="depoimentosCarrossel">
+                <!-- Depoimento 1 -->
+                <div class="depoimento-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="depoimento-text">"Em apenas 2 meses consegui substituir minha renda fixa. O curso de maquiagem digital mudou completamente minha vida financeira!"</p>
+                    <div class="cliente-info">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana" class="cliente-foto">
+                        <div class="cliente-detalhes">
+                            <h4>Ana Clara</h4>
+                            <p>Aluna Profissional</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-data">15/03/2023</div>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="depoimento-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="depoimento-text">"Aprendi técnicas que nunca vi em outro lugar. Hoje atendo clientes internacionais e minha renda aumentou 5 vezes!"</p>
+                    <div class="cliente-info">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Juliana" class="cliente-foto">
+                        <div class="cliente-detalhes">
+                            <h4>Juliana S.</h4>
+                            <p>Aluna VIP</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-data">10/05/2023</div>
+                </div>
+                
+                <!-- Depoimento 3 -->
+                <div class="depoimento-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="depoimento-text">"Comecei sem nenhuma experiência e em 30 dias já estava faturando R$3.000. O suporte da equipe é incrível!"</p>
+                    <div class="cliente-info">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Camila" class="cliente-foto">
+                        <div class="cliente-detalhes">
+                            <h4>Camila R.</h4>
+                            <p>Aluna Iniciante</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-data">22/07/2023</div>
+                </div>
+                
+                <!-- Depoimento 4 -->
+                <div class="depoimento-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="depoimento-text">"O módulo de renda extra foi revolucionário para mim. Aprendi a vender meus serviços e hoje trabalho apenas 4 horas por dia."</p>
+                    <div class="cliente-info">
+                        <img src="https://randomuser.me/api/portraits/women/76.jpg" alt="Fernanda" class="cliente-foto">
+                        <div class="cliente-detalhes">
+                            <h4>Fernanda O.</h4>
+                            <p>Aluna Completo</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-data">05/09/2023</div>
+                </div>
+                
+                <!-- Depoimento 5 -->
+                <div class="depoimento-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="depoimento-text">"Recuperei o investimento no curso em 3 semanas. Hoje ensino outras mulheres a alcançarem os mesmos resultados."</p>
+                    <div class="cliente-info">
+                        <img src="https://randomuser.me/api/portraits/women/85.jpg" alt="Roberta" class="cliente-foto">
+                        <div class="cliente-detalhes">
+                            <h4>Roberta M.</h4>
+                            <p>Aluna Master</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-data">18/10/2023</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carrossel-controls" id="carrosselDots"></div>
+        
+        <a href="#inscricao" class="cta-button">QUERO ME INSCREVER AGORA</a>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrossel = document.getElementById('depoimentosCarrossel');
+            const dotsContainer = document.getElementById('carrosselDots');
+            const prevBtn = document.querySelector('.carrossel-prev');
+            const nextBtn = document.querySelector('.carrossel-next');
+            const cards = document.querySelectorAll('.depoimento-card');
+            let currentIndex = 0;
+            let autoScrollInterval;
+            let isDesktop = window.innerWidth > 768;
+            let cardsToShow = isDesktop ? 3 : 1;
+            
+            // Inicializa o carrossel
+            initCarrossel();
+            
+            // Configura o redimensionamento da janela
+            window.addEventListener('resize', function() {
+                const newIsDesktop = window.innerWidth > 768;
+                if (newIsDesktop !== isDesktop) {
+                    isDesktop = newIsDesktop;
+                    cardsToShow = isDesktop ? 3 : 1;
+                    clearInterval(autoScrollInterval);
+                    initCarrossel();
+                }
+            });
+            
+            // Função para inicializar o carrossel
+            function initCarrossel() {
+                createDots();
+                updateCarrossel();
+                setupAutoScroll();
+                
+                // Event listeners para os botões
+                if (prevBtn && nextBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        navigate(-1);
+                        resetAutoScroll();
+                    });
+                    
+                    nextBtn.addEventListener('click', () => {
+                        navigate(1);
+                        resetAutoScroll();
+                    });
+                }
+                
+                // Pausa o auto-scroll quando o mouse está sobre o carrossel
+                carrossel.addEventListener('mouseenter', pauseAutoScroll);
+                carrossel.addEventListener('mouseleave', resumeAutoScroll);
+            }
+            
+            // Cria os dots de navegação
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const dotCount = isDesktop ? Math.ceil(cards.length / cardsToShow) : cards.length;
+                
+                for (let i = 0; i < dotCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('carrossel-dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        currentIndex = i * cardsToShow;
+                        updateCarrossel();
+                        resetAutoScroll();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            
+            // Atualiza a posição do carrossel
+            function updateCarrossel() {
+                const cardWidth = cards[0].offsetWidth + 20; // Inclui a margem
+                const translateX = -currentIndex * cardWidth;
+                carrossel.style.transform = `translateX(${translateX}px)`;
+                
+                updateDots();
+            }
+            
+            // Atualiza os dots ativos
+            function updateDots() {
+                const dots = document.querySelectorAll('.carrossel-dot');
+                let activeDot;
+                
+                if (isDesktop) {
+                    activeDot = Math.floor(currentIndex / cardsToShow);
+                } else {
+                    activeDot = currentIndex;
+                }
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeDot);
+                });
+            }
+            
+            // Navega entre os cards
+            function navigate(direction) {
+                currentIndex += direction * cardsToShow;
+                
+                // Ajusta para o final se passar do limite
+                if (currentIndex < 0) {
+                    currentIndex = cards.length - cardsToShow;
+                } else if (currentIndex >= cards.length) {
+                    currentIndex = 0;
+                }
+                
+                updateCarrossel();
+            }
+            
+            // Configura o scroll automático
+            function setupAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    navigate(1);
+                }, 4000);
+            }
+            
+            // Pausa o scroll automático
+            function pauseAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+            
+            // Retoma o scroll automático
+            function resumeAutoScroll() {
+                setupAutoScroll();
+            }
+            
+            // Reinicia o scroll automático
+            function resetAutoScroll() {
+                pauseAutoScroll();
+                resumeAutoScroll();
+            }
+        });
+    </script>
+</body>
+</html>
 
         <section class="formulario" id="formulario">
             <div class="interface">
